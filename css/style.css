@@ -1,3 +1,8 @@
+:root {
+  --main-color: #2196f3;
+  --main-color-alt: #1787e0;
+}
+
 /** ==================== GLOBAL RULES ==================== */
 * {
   box-sizing: border-box;
@@ -12,6 +17,12 @@
 }
 html {
   scroll-behavior: smooth;
+}
+body {
+  font-family: "Cairo", sans-serif;
+}
+ul {
+  list-style: none;
 }
 .container {
   margin-left: auto;
