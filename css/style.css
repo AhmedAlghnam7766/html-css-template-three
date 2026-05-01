@@ -1,6 +1,12 @@
 :root {
+  /* Colors */
   --main-color: #2196f3;
   --main-color-alt: #1787e0;
+  --main-box-shadow: 0 0 0.625rem #ddd;
+  /* Dimensions */
+  --section-padding: 6.25rem;
+  /* Transitions */
+  --main-transition: 0.3s;
 }
 
 /** ==================== GLOBAL RULES ==================== */
@@ -24,6 +30,9 @@ body {
 ul {
   list-style: none;
 }
+a {
+  text-decoration: none;
+}
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -44,4 +53,67 @@ ul {
   .container {
     width: 1170px;
   }
+}
+
+/** ==================== COMPONENTS ==================== */
+.section {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+/** ==================== HEADER ==================== */
+header {
+  box-shadow: var(--main-box-shadow);
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+header .logo,
+header .main-nav > li > a {
+  height: 4.5rem;
+}
+header .logo {
+  font-size: 1.625rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--main-color);
+  /* Maintains consistent header height regardless of content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .main-nav {
+  display: flex;
+}
+header .main-nav > li > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.875rem;
+  font-size: 1.125rem;
+  transition: var(--main-transition);
+  color: black;
+  position: relative;
+  overflow: hidden;
+}
+header .main-nav > li > a::before {
+  content: "";
+  position: absolute;
+  height: 5px;
+  width: 100%;
+  left: -100%;
+  top: 0;
+  background-color: var(--main-color);
+  transition: var(--main-transition);
+}
+header .main-nav > li > a:hover {
+  background-color: #fafafa;
+  color: var(--main-color);
+}
+header .main-nav > li > a:hover::before {
+  left: 0;
 }
