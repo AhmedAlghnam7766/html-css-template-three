@@ -72,6 +72,11 @@ header .container {
   flex-wrap: wrap;
   position: relative;
 }
+@media (max-width: 767px) {
+  header .container {
+    justify-content: center;
+  }
+}
 header .logo,
 header .main-nav > li > a {
   height: 4.5rem;
@@ -86,6 +91,11 @@ header .logo {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 767px) {
+  header .logo {
+    width: 100%;
+  }
+}
 header .main-nav {
   display: flex;
 }
@@ -99,6 +109,13 @@ header .main-nav > li > a {
   color: black;
   position: relative;
   overflow: hidden;
+}
+@media (max-width: 767px) {
+  header .main-nav > li > a {
+    font-size: 1rem;
+    padding: 1.25rem 0.625rem;
+    height: 2.5rem;
+  }
 }
 header .main-nav > li > a::before {
   content: "";
