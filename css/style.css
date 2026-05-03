@@ -4,8 +4,11 @@
   --main-color-alt: #1787e0;
   --main-box-shadow: 0 0 0.625rem #ddd;
   --light-font-color: #666;
+  --border-color: #e9e6e6;
   /* Dimensions */
   --section-padding: 6.25rem;
+  --link-size: 1.125rem;
+  --z-index: 999;
   /* Transitions */
   --main-transition: 0.3s;
 }
@@ -125,12 +128,18 @@ header .logo {
 header .main-nav {
   display: flex;
 }
+header .main-nav > li:hover .mega-menu {
+  opacity: 1;
+  z-index: var(--z-index);
+  /* Didn't add 1px for the box shadow because the hover will disappear when hover over the box-shadow */
+  top: 100%;
+}
 header .main-nav > li > a {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 1.875rem;
-  font-size: 1.125rem;
+  font-size: var(--link-size);
   transition: var(--main-transition);
   color: black;
   position: relative;
@@ -159,6 +168,88 @@ header .main-nav > li > a:hover {
 }
 header .main-nav > li > a:hover::before {
   left: 0;
+}
+header .mega-menu {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  padding: 1.875rem;
+  background-color: white;
+  border-bottom: 3px solid var(--main-color);
+  z-index: -1;
+  display: flex;
+  gap: 2.5rem;
+  top: calc(100% + 3.125rem);
+  opacity: 0;
+  transition:
+    top var(--main-transition),
+    opacity var(--main-transition);
+}
+@media (max-width: 767px) {
+  header .mega-menu {
+    flex-direction: column;
+    gap: 0;
+    padding: 8px;
+  }
+}
+header .mega-menu .image {
+  flex: 1;
+}
+@media (max-width: 991px) {
+  header .mega-menu .image {
+    display: none;
+  }
+}
+header .mega-menu .image img {
+  max-width: 100%;
+}
+@media (max-width: 991px) {
+  header .mega-menu ul {
+    flex: 1;
+  }
+}
+header .mega-menu ul li {
+  position: relative;
+}
+@media (max-width: 767px) {
+  header .mega-menu ul:first-of-type li:last-of-type {
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+header .mega-menu ul li:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+}
+header .mega-menu ul li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #fafafa;
+  z-index: -1;
+  transition: var(--main-transition);
+}
+header .mega-menu ul li:hover::before {
+  width: 100%;
+}
+header .mega-menu ul a,
+header .mega-menu ul a svg {
+  color: var(--main-color);
+}
+header .mega-menu ul a {
+  font-size: var(--link-size);
+  display: block;
+  padding: 0.9375rem;
+  font-weight: bold;
+}
+@media (max-width: 767px) {
+  header .mega-menu ul a {
+    font-size: 1rem;
+  }
+}
+header .mega-menu ul a svg {
+  margin-right: 0.625rem;
 }
 
 /** ==================== LANDING ==================== */
