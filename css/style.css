@@ -397,3 +397,52 @@ header .mega-menu ul a svg {
   width: 2.3125rem;
   color: var(--main-color);
 }
+
+/** ==================== ARTICLES ==================== */
+.articles .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+  gap: 2.5rem;
+}
+.articles .container article {
+  box-shadow: var(--main-box-shadow);
+  border-radius: 10px;
+  background-color: white;
+  /* To make the border-radius visible */
+  overflow: hidden;
+  transition: var(--main-transition);
+}
+.articles .container article:hover {
+  transform: translateY(-0.9375rem);
+  box-shadow: 0.3125rem 0.3125rem 0.9375rem #ddd;
+}
+.articles .container article:hover .info svg {
+  transform: translateX(0.625rem);
+}
+.articles .container article img {
+  max-width: 100%;
+}
+.articles article .text {
+  padding: 1.25rem;
+}
+.articles article .text p {
+  margin: 0.625rem 0 0;
+  line-height: 1.5;
+  color: var(--light-font-color);
+}
+.articles article .info {
+  padding: 1.25rem;
+  border-top: 1px solid #e6e6e7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.articles article .info a {
+  color: var(--main-color);
+  font-weight: bold;
+}
+.articles article .info svg {
+  width: 1.125rem;
+  color: var(--main-color);
+  transition: var(--main-transition);
+}
