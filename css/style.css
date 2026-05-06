@@ -67,6 +67,45 @@ svg {
   padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
 }
+h2.main-title {
+  text-transform: uppercase;
+  font-size: 1.875rem;
+  padding: 0.625rem 1.25rem;
+  position: relative;
+  width: fit-content;
+  margin: 0 auto 5rem;
+  border: 2px solid black;
+  transition: var(--main-transition);
+}
+h2.main-title:hover {
+  color: white;
+  border: 2px solid white;
+  transition-delay: 0.5s;
+}
+h2.main-title::before,
+h2.main-title::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  top: 50%;
+  transform: translateY(-50%);
+}
+h2.main-title::before {
+  left: -1.875rem;
+}
+h2.main-title:hover::before {
+  animation: header-fill-left 0.5s linear forwards;
+}
+h2.main-title::after {
+  right: -1.875rem;
+}
+h2.main-title:hover:after {
+  animation: header-fill-right 0.5s linear forwards;
+}
 
 /** ==================== ANIMATION ==================== */
 @keyframes up-and-down {
@@ -86,6 +125,32 @@ svg {
   40%,
   60% {
     transform: translate(-50%, -0.9375rem);
+  }
+}
+@keyframes header-fill-left {
+  50% {
+    left: 0;
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+  100% {
+    width: 50%;
+    height: 100%;
+    border-radius: 0;
+    left: 0;
+  }
+}
+@keyframes header-fill-right {
+  50% {
+    right: 0;
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+  100% {
+    width: 50%;
+    height: 100%;
+    border-radius: 0;
+    right: 0;
   }
 }
 
